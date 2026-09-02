@@ -1,126 +1,575 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>For Houda</title>
+<title>For Houda — A little world of yours</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
 
-    body {
-      background: #0b0b0b;
-      color: #f5f1ea;
-      font-family: Georgia, serif;
-      height: 100vh;
-      overflow: hidden;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .opening {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 30px;
-      animation: fadeIn 2s ease;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    .small {
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      opacity: 0.5;
-      margin-bottom: 25px;
-    }
+body {
+    background: #0b0b0b;
+    color: #eeeae3;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+}
 
-    h1 {
-      font-size: clamp(55px, 11vw, 130px);
-      font-weight: normal;
-      letter-spacing: -4px;
-      margin-bottom: 20px;
-    }
+/* INTRO */
 
-    .message {
-      max-width: 550px;
-      font-size: 18px;
-      line-height: 1.8;
-      opacity: 0.7;
-      margin-bottom: 45px;
-    }
+.intro {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 30px;
+}
 
-    button {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.35);
-      color: #f5f1ea;
-      padding: 14px 30px;
-      border-radius: 100px;
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: 0.4s ease;
-    }
+.intro-content {
+    animation: appear 2s ease forwards;
+}
 
-    button:hover {
-      background: #f5f1ea;
-      color: #0b0b0b;
-      transform: translateY(-3px);
-    }
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    opacity: .45;
+    margin-bottom: 25px;
+}
 
-    .date {
-      position: absolute;
-      bottom: 30px;
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      letter-spacing: 3px;
-      opacity: 0.3;
-    }
+h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(65px, 13vw, 150px);
+    font-weight: 400;
+    line-height: .9;
+    letter-spacing: -5px;
+}
 
-    @keyframes fadeIn {
-      from {
+.intro-text {
+    max-width: 520px;
+    margin: 35px auto 45px;
+    line-height: 1.8;
+    font-size: 16px;
+    opacity: .6;
+}
+
+.enter {
+    border: 1px solid rgba(255,255,255,.3);
+    background: transparent;
+    color: #eeeae3;
+    padding: 15px 32px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    transition: .4s ease;
+}
+
+.enter:hover {
+    background: #eeeae3;
+    color: #0b0b0b;
+    transform: translateY(-3px);
+}
+
+.scroll-note {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: .25;
+}
+
+/* MAIN */
+
+#main {
+    display: none;
+}
+
+section {
+    min-height: 100vh;
+    padding: 120px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section-number {
+    font-size: 9px;
+    letter-spacing: 4px;
+    opacity: .35;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(45px, 7vw, 90px);
+    font-weight: 400;
+    line-height: 1;
+    max-width: 800px;
+}
+
+.section-title em {
+    opacity: .5;
+}
+
+.line {
+    width: 70px;
+    height: 1px;
+    background: rgba(255,255,255,.3);
+    margin: 35px 0;
+}
+
+/* HER */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+}
+
+.hero-text {
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.9;
+    opacity: .55;
+}
+
+.hero-name {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(90px, 17vw, 220px);
+    position: absolute;
+    bottom: 8%;
+    right: 6%;
+    opacity: .05;
+    pointer-events: none;
+}
+
+/* THINGS */
+
+.things {
+    background: #101010;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 70px;
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.card {
+    min-height: 260px;
+    padding: 35px;
+    border: 1px solid rgba(255,255,255,.06);
+    transition: .5s ease;
+}
+
+.card:hover {
+    background: #171717;
+    transform: translateY(-5px);
+}
+
+.card-number {
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: .3;
+}
+
+.card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 60px 0 15px;
+}
+
+.card p {
+    font-size: 13px;
+    line-height: 1.7;
+    opacity: .45;
+}
+
+/* DISTANCE */
+
+.distance {
+    text-align: center;
+    align-items: center;
+}
+
+.distance .line {
+    margin: 35px auto;
+}
+
+.distance-text {
+    max-width: 650px;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: clamp(25px, 4vw, 45px);
+    line-height: 1.5;
+    opacity: .8;
+}
+
+/* LETTER */
+
+.letter {
+    background: #eeeae3;
+    color: #111;
+}
+
+.letter .section-number {
+    opacity: .4;
+}
+
+.letter-content {
+    max-width: 720px;
+}
+
+.letter h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: clamp(40px, 6vw, 75px);
+    margin-bottom: 50px;
+}
+
+.letter p {
+    font-family: "Playfair Display", serif;
+    font-size: 19px;
+    line-height: 2;
+    margin-bottom: 25px;
+    opacity: .75;
+}
+
+.signature {
+    margin-top: 50px;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 25px;
+}
+
+/* END */
+
+.end {
+    min-height: 100vh;
+    text-align: center;
+    align-items: center;
+}
+
+.end h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(55px, 9vw, 110px);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.end p {
+    margin-top: 35px;
+    opacity: .45;
+    max-width: 450px;
+    line-height: 1.8;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px;
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: .2;
+}
+
+/* ANIMATION */
+
+@keyframes appear {
+    from {
         opacity: 0;
-        transform: translateY(20px);
-      }
+        transform: translateY(25px);
+    }
 
-      to {
+    to {
         opacity: 1;
         transform: translateY(0);
-      }
     }
-  </style>
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    section {
+        padding: 90px 7%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: 220px;
+    }
+
+    .hero-name {
+        font-size: 100px;
+    }
+
+}
+</style>
 </head>
 
 <body>
 
-  <main class="opening">
+<!-- INTRO -->
 
-    <div class="small">A little something for</div>
+<div class="intro" id="intro">
 
-    <h1>Houda.</h1>
+    <div class="intro-content">
 
-    <p class="message">
-      I couldn't give you a present wrapped in paper,
-      so I made you a little place on the internet instead.
-    </p>
+        <div class="eyebrow">A little something for</div>
 
-    <button onclick="enterSite()">Enter</button>
+        <h1>Houda.</h1>
 
-    <div class="date">02 · 09 · 2026</div>
+        <p class="intro-text">
+            I couldn't give you something wrapped in paper,
+            so I made you a little place instead.
+        </p>
 
-  </main>
+        <button class="enter" onclick="begin()">
+            Enter
+        </button>
 
-  <script>
-    function enterSite() {
-      alert("There is a lot more waiting for you, Houda. ❤️");
+    </div>
+
+    <div class="scroll-note">
+        02 · 09 · 2026
+    </div>
+
+</div>
+
+
+<!-- MAIN WEBSITE -->
+
+<div id="main">
+
+    <!-- HER -->
+
+    <section class="hero">
+
+        <div class="section-number">01 — HER</div>
+
+        <h2 class="section-title">
+            There is a certain way<br>
+            <em>you see the world.</em>
+        </h2>
+
+        <div class="line"></div>
+
+        <p class="hero-text">
+            You notice little things. You find beauty in places,
+            objects, colours, moments and things that other people
+            might simply walk past.
+            <br><br>
+            Maybe that is one of the things I like most about you.
+            You have your own way of looking at the world.
+        </p>
+
+        <div class="hero-name">
+            HOUDA
+        </div>
+
+    </section>
+
+
+    <!-- THINGS SHE LOVES -->
+
+    <section class="things">
+
+        <div class="section-number">02 — THINGS YOU LOVE</div>
+
+        <h2 class="section-title">
+            The little things<br>
+            <em>that make you, you.</em>
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-number">01</div>
+
+                <h3>Art</h3>
+
+                <p>
+                    The things you find beautiful,
+                    the things that catch your attention,
+                    and the things that make you stop for a moment.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">02</div>
+
+                <h3>Photography</h3>
+
+                <p>
+                    Little pieces of the world through your eyes.
+                    The moments you decide are worth remembering.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">03</div>
+
+                <h3>Your world</h3>
+
+                <p>
+                    The people, places, songs, objects and tiny
+                    details that somehow become part of your story.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DISTANCE -->
+
+    <section class="distance">
+
+        <div class="section-number">03 — FROM A DISTANCE</div>
+
+        <h2 class="section-title">
+            Different cities.
+        </h2>
+
+        <div class="line"></div>
+
+        <p class="distance-text">
+            "Distance is a strange thing.
+            Sometimes someone can be far away
+            and still feel close."
+        </p>
+
+        <p class="hero-text" style="margin-top:40px;">
+            I wish I could have been there today.
+            But until I can, I hope this little corner of the
+            internet can remind you that you were thought of.
+        </p>
+
+    </section>
+
+
+    <!-- LETTER -->
+
+    <section class="letter">
+
+        <div class="section-number">04 — A LETTER</div>
+
+        <div class="letter-content">
+
+            <h2>Dear Houda,</h2>
+
+            <p>
+                Happy birthday.
+            </p>
+
+            <p>
+                I hope this next year of your life gives you
+                reasons to laugh more, places you've never seen,
+                things you've never tried, and memories you will
+                still be talking about years from now.
+            </p>
+
+            <p>
+                I hope you continue finding beauty in the little
+                things. I hope you keep taking pictures of the
+                things that matter to you. And I hope you never
+                lose that part of yourself that notices things
+                other people don't.
+            </p>
+
+            <p>
+                I may not be able to be there today, but I wanted
+                to make something that could.
+            </p>
+
+            <p>
+                So this is my little birthday present to you.
+                Nothing expensive. Nothing complicated.
+                Just something I made because you matter to me.
+            </p>
+
+            <div class="signature">
+                — Promise
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- END -->
+
+    <section class="end">
+
+        <div class="section-number">05 — ONE LAST THING</div>
+
+        <h2>
+            See you<br>
+            someday.
+        </h2>
+
+        <p>
+            Until then, keep seeing the world
+            in your own beautiful way.
+            <br><br>
+            Happy birthday, Houda.
+        </p>
+
+    </section>
+
+
+    <footer>
+        MADE FOR HOUDA · 2026
+    </footer>
+
+</div>
+
+
+<script>
+
+function begin() {
+
+    document.getElementById("intro").style.display = "none";
+
+    document.getElementById("main").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
     }
   </script>
 

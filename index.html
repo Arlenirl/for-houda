@@ -1,1 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>For Houda</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #f5f1ea;
+      font-family: Georgia, serif;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .opening {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      animation: fadeIn 2s ease;
+    }
+
+    .small {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(55px, 11vw, 130px);
+      font-weight: normal;
+      letter-spacing: -4px;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      max-width: 550px;
+      font-size: 18px;
+      line-height: 1.8;
+      opacity: 0.7;
+      margin-bottom: 45px;
+    }
+
+    button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #f5f1ea;
+      padding: 14px 30px;
+      border-radius: 100px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.4s ease;
+    }
+
+    button:hover {
+      background: #f5f1ea;
+      color: #0b0b0b;
+      transform: translateY(-3px);
+    }
+
+    .date {
+      position: absolute;
+      bottom: 30px;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      opacity: 0.3;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="opening">
+
+    <div class="small">A little something for</div>
+
+    <h1>Houda.</h1>
+
+    <p class="message">
+      I couldn't give you a present wrapped in paper,
+      so I made you a little place on the internet instead.
+    </p>
+
+    <button onclick="enterSite()">Enter</button>
+
+    <div class="date">02 · 09 · 2026</div>
+
+  </main>
+
+  <script>
+    function enterSite() {
+      alert("There is a lot more waiting for you, Houda. ❤️");
+    }
+  </script>
+
+</body>
+</html>
